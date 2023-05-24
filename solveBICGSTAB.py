@@ -13,7 +13,6 @@ def timeBICGSTAB(A, b):
   return x
 
 dimensions = [10, 100, 1000, 2000]
-dimensions = [10, 100]
 
 elapsed_time_cpu = []
 elapsed_time_gpu = []
@@ -43,10 +42,10 @@ for i, dimension in enumerate(dimensions):
         end_time = timeit.default_timer()
         elapsed_time_gpu.append([i, (end_time - start_time)])
 
-print("\nCpu timing: ")
-print(elapsed_time_cpu)
-print("\nGpu timing: ")
-print(elapsed_time_gpu)
+    print("\nCpu timing: ")
+    print(elapsed_time_cpu[i][1])
+    print("\nGpu timing: ")
+    print(elapsed_time_gpu[i][1])
 
 with open('timing_jax_cpu.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
