@@ -5,7 +5,7 @@ function timeBICGSTAB(A, b, l)
     return x
 end
 
-dimensions = [10, 100]
+dimensions = [10, 100, 1000, 2000]
 
 println(dimensions)
 
@@ -15,11 +15,9 @@ for (i, dimension) in enumerate(dimensions)
     println(i)
     A = readdlm("data/matrixA" * string(dimension) * ".csv", ',', Float64, '\n')
     b = readdlm("data/matrixb" * string(dimension) * ".csv", ',', Float64, '\n')
-    # timing[i, 1] = i
     timing[i, :] = [i, @elapsed timeBICGSTAB(A, b, l)]
 
-    # CSV.write("X_Julia_" * string(i) * ".csv", Tables.table(x), writeheader=false)
-    # println("Time: ", timing[i])
+    println("Time: ", timing[i, 2])
 end
 
 CSV.write("timing_Julia.csv", Tables.table(timing), writeheader=false)
