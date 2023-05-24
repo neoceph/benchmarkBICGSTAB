@@ -36,6 +36,7 @@ if (OPENMP_FOUND)
 endif()
 
 find_package(Armadillo CONFIG REQUIRED)
+find_package(Eigen3 CONFIG REQUIRED)
 
 include(ExternalProject)
 find_package(PkgConfig REQUIRED)
@@ -83,6 +84,7 @@ add_subdirectory(src)
 target_link_libraries(
         ${Project} 
         PUBLIC ${ARMADILLO_LIBRARIES}
+        PRIVATE Eigen3::Eigen
         PkgConfig::PETSC
         )
 
