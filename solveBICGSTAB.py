@@ -33,14 +33,14 @@ for i, dimension in enumerate(dimensions):
         start_time = timeit.default_timer()
         x_cpu = jax.jit(timeBICGSTAB)(A, b)
         end_time = timeit.default_timer()
-        elapsed_time_cpu.append([i, (end_time - start_time)])
+        elapsed_time_cpu.append([dimension, (end_time - start_time)])
 
 
     with jax.default_device(gpu_device):
         start_time = timeit.default_timer()
         x_gpu = jax.jit(timeBICGSTAB)(A, b)
         end_time = timeit.default_timer()
-        elapsed_time_gpu.append([i, (end_time - start_time)])
+        elapsed_time_gpu.append([dimension, (end_time - start_time)])
 
     print("\nCpu timing: ")
     print(elapsed_time_cpu[i][1])
