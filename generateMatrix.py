@@ -6,7 +6,7 @@ directoryName = "data"
 if not os.path.exists(directoryName):
     os.makedirs(directoryName)
 
-dimensions = [10, 100, 1000, 2000]
+dimensions = [10, 100, 1000, 2000, 3000, 4000, 5000]
 
 for dimension in dimensions:
     matrixA = np.random.rand(dimension, dimension)

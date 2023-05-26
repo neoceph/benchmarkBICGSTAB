@@ -12,7 +12,7 @@ def timeBICGSTAB(A, b):
   x = bicgstab(A, b)
   return x
 
-dimensions = [10, 100, 1000, 2000]
+dimensions = [10, 100, 1000, 2000, 3000, 4000, 5000]
 
 elapsed_time_cpu = []
 elapsed_time_gpu = []
